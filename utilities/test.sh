@@ -1,1 +1,1 @@
- proxychains4 node importFromGfwList.js
+proxychains4 node importFromGfwList.js
