@@ -32,7 +32,7 @@ BRICKS is a list for all the domains blocked by the Chinese GFW.
 
 
 ## Different from GfwList
-[GfwList](https://code.google.com/p/autoproxy-gfwlist/) is cool and effective, but is complex and inefficient currently. Now I want to make it simple and work more smoothly.
+[GfwList](https://code.google.com/p/autoproxy-gfwlist/) is cool and effective, but is complex and inefficient currently. Now, I want to make it simple and work more smoothly.
 
 
 ## Installation
