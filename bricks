@@ -51,7 +51,7 @@ function FindProxyForURL(url, host) {
 
     var bricks = {
         $bricks
-        'localhost'
+        'localhost' : 1
     };
 
     // see https://github.com/clowwindy/ChinaDNS/blob/master/chinadns/dnsrelay.py
