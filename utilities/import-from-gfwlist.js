@@ -2,10 +2,12 @@
 // Import domains from GfwList by @leaskh
 
 // configurations
-var urlGfwList = 'http://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt';
+var urlGfwList = 'http://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt',
+    brickFile  = './gfw.bricks';
 
 // load requirements
-var http = require('http');
+var http = require('http'),
+    exec = require('child_process').exec;
 
 var base64Decode = function(base64) {
     return new Buffer(base64, 'base64').toString();
@@ -67,7 +69,10 @@ var parseList = function(err, body) {
             }
         }
     }
-    console.log(domains);
+    for (i in domains) {
+        exec("echo '" + i + "' > " + brickFile);
+    }
+    console.log('Done :)');
 };
 
 // patch prototypes

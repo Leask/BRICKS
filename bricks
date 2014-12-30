@@ -1,6 +1,10 @@
 #!/bin/sh
 # BRICKS the Gfwed domains list by @leaskh
 
+searchDomain() {
+    grep "$1" $brickFile
+}
+
 addDomain() {
     if [ "$1" = '' ]; then
         echo 'Domain can not be empty!';
@@ -10,11 +14,19 @@ addDomain() {
     cleanList
 }
 
+removeDomain() {
+    grep -v "$1" $brickFile > $brickFile.temp
+    mv $brickFile.temp $brickFile
+    cleanList
+}
+
 cleanList() {
-    sort -u $brickFile > $brickFile
+    sort -u $brickFile -o $brickFile
+    echo 'Done :)'
 }
 
 showHelp() {
+    echo '- search : Search for domains in BRICKS'
     echo '- add    : Add domain to BRICKS'
     echo '- remove : Remove domain from BRICKS'
     echo '- clean  : Sort & uniq domains in BRICKS'
@@ -31,10 +43,11 @@ brickFile=./gfw.bricks
 
 # Main logic
 case "$1" in
-    'add')    addDomain $2;;
-    'remove') removeDomain;;
-    'clean')  cleanList;;
-    'help')   showHelp;;
-    *)        unknowCommand;;
+    'search') searchDomain $2;;
+    'add'   ) addDomain    $2;;
+    'remove') removeDomain $2;;
+    'clean' ) cleanList      ;;
+    'help'  ) showHelp       ;;
+    *       ) unknowCommand  ;;
 esac
 exit 0
