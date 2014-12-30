@@ -1,0 +1,40 @@
+#!/bin/sh
+# BRICKS the Gfwed domains list by @leaskh
+
+addDomain() {
+    if [ "$1" = '' ]; then
+        echo 'Domain can not be empty!';
+        exit 1
+    fi
+    echo $1 >> $brickFile
+    cleanList
+}
+
+cleanList() {
+    sort -u $brickFile > $brickFile
+}
+
+showHelp() {
+    echo '- add    : Add domain to BRICKS'
+    echo '- remove : Remove domain from BRICKS'
+    echo '- clean  : Sort & uniq domains in BRICKS'
+    echo '- helps  : Show this infos'
+}
+
+unknowCommand() {
+    showHelp
+    exit 1
+}
+
+# BlackBox configurations
+brickFile=./gfw.bricks
+
+# Main logic
+case "$1" in
+    'add')    addDomain $2;;
+    'remove') removeDomain;;
+    'clean')  cleanList;;
+    'help')   showHelp;;
+    *)        unknowCommand;;
+esac
+exit 0
