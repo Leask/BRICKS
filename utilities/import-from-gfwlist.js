@@ -41,6 +41,7 @@ var fetchList = function(callback) {
     });
 };
 
+// https://autoproxy.org/en/Rules
 var parseList = function(err, body) {
     if (err) {
         console.log('Error: ' + err);

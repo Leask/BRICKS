@@ -1,6 +1,10 @@
 #!/bin/sh
 # BRICKS the Gfwed domains list by @leaskh
 
+listDomain() {
+    cat $brickFile
+}
+
 searchDomain() {
     grep "$1" $brickFile
 }
@@ -26,6 +30,22 @@ cleanList() {
 }
 
 showHelp() {
+    echo ' ____________________________________________ '
+    echo '| Twitter|________|________|________|__Vimeo_|'
+    echo '|________|Facebook|________|________|________|'
+    echo '|________|________|________|________|________|'
+    echo '|________|________|________|_Google_|________|'
+    echo '|YouTube_|        |________|________|________|'
+    echo '|                                            |'
+    echo '|              *                             |'
+    echo '|                                            |'
+    echo '|              _______                       |'
+    echo '|             |_______|                      |'
+    echo '|____________________________________________|'
+    echo ''
+    echo 'BRICKS is a list for all the domains blocked by the Chinese GFW (Great-Fire-Wall).'
+    echo ''
+    echo '- list   : List all the domains in BRICKS'
     echo '- search : Search for domains in BRICKS'
     echo '- add    : Add domain to BRICKS'
     echo '- remove : Remove domain from BRICKS'
@@ -43,6 +63,7 @@ brickFile=./gfw.bricks
 
 # Main logic
 case "$1" in
+    'list'  ) listDomain     ;;
     'search') searchDomain $2;;
     'add'   ) addDomain    $2;;
     'remove') removeDomain $2;;
