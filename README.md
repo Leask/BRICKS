@@ -1,4 +1,4 @@
 BRICKS
 ======
 
-Gfwed domains tree.
+Gfwed domains list.
