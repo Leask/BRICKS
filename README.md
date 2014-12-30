@@ -31,6 +31,10 @@ BRICKS is a list for all the domains blocked by the Chinese GFW.
 * Help you to walkaround the GFW with a proxy server.
 
 
+## Different from GfwList
+[GfwList](https://code.google.com/p/autoproxy-gfwlist/) is cool and effective, but is complex and inefficient currently. Now I want to make it simple and work more smoothly.
+
+
 ## Installation
 
 `$ git clone https://github.com/Leask/BRICKS.git`
@@ -66,6 +70,11 @@ BRICKS is a list for all the domains blocked by the Chinese GFW.
 * Fork -> add domain to list -> tests -> pull request
 
 
+## See also
+
+Flora_Pac: [https://github.com/Leask/Flora_Pac](https://github.com/Leask/Flora_Pac)
+
+
 ## Get support
 
-* Email / iMessage / Hangouts: i@leaskh.com
+Email / iMessage / Hangouts: i@leaskh.com
