@@ -195,7 +195,7 @@ HereDoc)
 }
 
 pacServer() {
-    makePac
+    makePac $1
     echo 'PAC is now serving at: 0.0.0.0:8000'
     echo 'Check it out with: $ curl http://127.0.0.1:8000'
     python -m SimpleHTTPServer
@@ -222,6 +222,8 @@ showHelp() {
     echo '- add    : Add domain to BRICKS'
     echo '- remove : Remove domain from BRICKS'
     echo '- clean  : Sort & uniq domains in BRICKS'
+    echo '- makpac : Make BRICKS PAC file'
+    echo '- pacsrv : Make BRICKS PAC file and launch HTTP server'
     echo '- helps  : Show this infos'
 }
 
