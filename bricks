@@ -43,9 +43,9 @@ makePac() {
             length=$(( length + 1 ))
         fi
     done < $brickFile
-    strPac=$(cat <<HereDoc
+    strPac=$(cat <<EOF
 // BRICKS Pac by @leaskh
-// www.leaskh.com, i@leaskh.com
+// www.leaskh.com, i@leaskh.com\n
 
 function FindProxyForURL(url, host) {
 
@@ -54,7 +54,7 @@ function FindProxyForURL(url, host) {
         'localhost' : 1
     };
 
-    // see https://github.com/clowwindy/ChinaDNS/blob/master/chinadns/dnsrelay.py
+    \n// see https://github.com/clowwindy/ChinaDNS/blob/master/chinadns/dnsrelay.py\n
     var fakeIps = {
         '74.125.127.102'  : 1,
         '74.125.155.102'  : 1,
@@ -186,7 +186,7 @@ function FindProxyForURL(url, host) {
     return DIRECT;
 
 }
-HereDoc)
+EOF)
     echo $strPac > $opFile
     echo 'Done :)'
     echo "Rules: $length items."
