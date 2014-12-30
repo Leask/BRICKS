@@ -30,6 +30,19 @@ cleanList() {
 }
 
 makePac() {
+    if [ "$1" = '' ]; then
+        echo 'Proxy configurations can not be empty!';
+        exit 1
+    fi
+    bricks=''
+    length=0
+    opFile=bricks.pac
+    while read line; do
+        if [ "$line" != '' ]; then
+            bricks+="'$line' : 1,"
+            length=$(( length + 1 ))
+        fi
+    done < $brickFile
     strPac=$(cat <<HereDoc
 // BRICKS Pac by @leaskh
 // www.leaskh.com, i@leaskh.com
@@ -37,14 +50,8 @@ makePac() {
 function FindProxyForURL(url, host) {
 
     var bricks = {
-     // 'apple.com' : 1,
-        'google.com' : 1,
-        'twitter.com' : 1,
-        'facebook.com' : 1,
-        'yyets.com' : 1,
-        'tw.yahoo.com' : 1,
-        'youtube.com' : 1,
-        'zaobao.com.sg' : 1
+        $bricks
+        'localhost'
     };
 
     // see https://github.com/clowwindy/ChinaDNS/blob/master/chinadns/dnsrelay.py
@@ -127,7 +134,7 @@ function FindProxyForURL(url, host) {
         16402 : 1
     };
 
-    var proxy = 'SOCKS5 127.0.0.1:8964; SOCKS 127.0.0.1:8964; DIRECT';
+    var proxy = '$1';
 
     function testDomain(target, domains, cnRootIncluded) {
         var idxA = target.lastIndexOf('.');
@@ -180,8 +187,18 @@ function FindProxyForURL(url, host) {
 
 }
 HereDoc)
-echo $strPac
+    echo $strPac > $opFile
+    echo 'Done :)'
+    echo "Rules: $length items."
+    echo "Usage: Use the newly created $opFile as your web browser's automatic"
+    echo 'PAC(Proxy auto-config) file.'
+}
 
+pacServer() {
+    makePac
+    echo 'PAC is now serving at: 0.0.0.0:8000'
+    echo 'Check it out with: $ curl http://127.0.0.1:8000'
+    python -m SimpleHTTPServer
 }
 
 showHelp() {
