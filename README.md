@@ -14,7 +14,7 @@ BRICKS
 	|____________________________________________|
 
 ## What is BRICKS?
-BRICKS is a list for all the domains blocked by the Chinese GFW (Great-Fire-Wall).
+BRICKS is a list for all the domains blocked by the Chinese GFW.
 
 ## What for?
 * In order to collect all the domains blocked by the GFW with the contributers all over the internet.
