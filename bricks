@@ -219,11 +219,11 @@ showHelp() {
     echo ''
     echo '- list   : List all the domains in BRICKS'
     echo '- search : Search for domains in BRICKS'
-    echo '- add    : Add domain to BRICKS'
+    echo '- add    : Add domain into BRICKS'
     echo '- remove : Remove domain from BRICKS'
     echo '- clean  : Sort & uniq domains in BRICKS'
-    echo '- makpac : Make BRICKS PAC file'
-    echo '- pacsrv : Make BRICKS PAC file and launch HTTP server'
+    echo '- makpac : Make PAC file with BRICKS'
+    echo '- pacsrv : Make PAC file and launch HTTP server'
     echo '- helps  : Show this infos'
 }
 

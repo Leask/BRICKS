@@ -23,8 +23,33 @@ BRICKS is a list for all the domains blocked by the Chinese GFW.
 * Help you to walkaround the GFW with a proxy server.
 
 ## How to use?
+`$ git clone https://github.com/Leask/BRICKS.git`
 
+`$ cd BRICKS`
+
+* Add domain into BRICKS
+
+	`./bricks add 'google.com'`
+
+* Remove domain from BRICKS
+
+	`./bricks remove 'facebook.com'`
+
+* Make PAC file with BRICKS
+
+	`./bricks makpac 'SOCKS5 127.0.0.1:8964; SOCKS 127.0.0.1:8964; DIRECT'`
+
+* Make PAC file and launch HTTP server
+
+	`./bricks pacsrv 'SOCKS5 127.0.0.1:8964; SOCKS 127.0.0.1:8964; DIRECT'`
+
+* Show help infos
+
+	`./bricks help`
 
 ## Contributing
 * Fork -> features implement -> tests -> pull request
 * Fork -> add domain to list -> tests -> pull request
+
+## Get support
+* Email / iMessage / Hangouts: i@leaskh.com
