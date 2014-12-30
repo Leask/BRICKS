@@ -21,3 +21,10 @@ BRICKS is a list for all the domains blocked by the Chinese GFW.
 * To learn how huge the restrictions is, in the Chinese internet.
 * To log the datas about this terrifying digital Berlin Wall as much as possible.
 * Help you to walkaround the GFW with a proxy server.
+
+## How to use?
+
+
+## Contributing
+* Fork -> features implement -> tests -> pull request
+* Fork -> add domain to list -> tests -> pull request
