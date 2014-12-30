@@ -7,6 +7,7 @@ var urlGfwList = 'http://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt'
 
 // load requirements
 var http = require('http'),
+    fs   = require('fs'),
     exec = require('child_process').exec;
 
 var base64Decode = function(base64) {
@@ -45,7 +46,8 @@ var parseList = function(err, body) {
         console.log('Error: ' + err);
         process.exit(1);
     }
-    var domains = {}
+    var domains = {},
+        append  = '';
     body = body.split('\n');
     for (var i in body) {
         body[i] = body[i].trim().toLowerCase();
@@ -70,9 +72,23 @@ var parseList = function(err, body) {
         }
     }
     for (i in domains) {
-        exec("echo '" + i + "' > " + brickFile);
+        append += "\n" + i;
     }
-    console.log('Done :)');
+    fs.writeFile(brickFile, append, function (err) {
+        if (err) {
+            console.log('Error: ' + err);
+            process.exit(1);
+        }
+        exec('./bricks clean', function (err, stdout, stderr) {
+            if (err) {
+                console.log(
+                    'Error: ' + (err ? err : '') + (stderr ? stderr : '')
+                );
+                process.exit(1);
+            }
+            console.log(stdout);
+        });
+    });
 };
 
 // patch prototypes
