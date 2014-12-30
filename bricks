@@ -30,7 +30,7 @@ cleanList() {
 }
 
 makePac() {
-    if [ "$1" = '' ]; then
+    if [ "$*" = '' ]; then
         echo 'Proxy configurations can not be empty!';
         exit 1
     fi
@@ -134,7 +134,7 @@ function FindProxyForURL(url, host) {
         16402 : 1
     };
 
-    var proxy = '$1';
+    var proxy = '$*';
 
     function testDomain(target, domains, cnRootIncluded) {
         var idxA = target.lastIndexOf('.');
@@ -195,7 +195,7 @@ HereDoc)
 }
 
 pacServer() {
-    makePac $1
+    makePac $*
     echo 'PAC is now serving at: 0.0.0.0:8000'
     echo 'Check it out with: $ curl http://127.0.0.1:8000'
     python -m SimpleHTTPServer
