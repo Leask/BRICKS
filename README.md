@@ -42,25 +42,31 @@ BRICKS is a list for all the domains blocked by the Chinese GFW.
 
 ## Uasge
 
+* List all websites blocked by Chinese government
+
+    `$ ./bricks list`
+
+    or just simply `$ cat gfw.bricks`
+
 * Add domain into BRICKS
 
-	`./bricks add 'google.com'`
+	`$ ./bricks add 'google.com'`
 
 * Remove domain from BRICKS
 
-	`./bricks remove 'facebook.com'`
+	`$ ./bricks remove 'facebook.com'`
 
 * Make PAC file with BRICKS
 
-	`./bricks makpac 'SOCKS5 127.0.0.1:8964; SOCKS 127.0.0.1:8964; DIRECT'`
+	`$ ./bricks makpac 'SOCKS5 127.0.0.1:8964; SOCKS 127.0.0.1:8964; DIRECT'`
 
 * Make PAC file and launch HTTP server
 
-	`./bricks pacsrv 'SOCKS5 127.0.0.1:8964; SOCKS 127.0.0.1:8964; DIRECT'`
+	`$ ./bricks pacsrv 'SOCKS5 127.0.0.1:8964; SOCKS 127.0.0.1:8964; DIRECT'`
 
 * Show help infos
 
-	`./bricks help`
+	`$ ./bricks help`
 
 
 ## Contributing
