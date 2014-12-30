@@ -197,7 +197,7 @@ HereDoc)
 pacServer() {
     makePac $*
     echo 'PAC is now serving at: 0.0.0.0:8000'
-    echo 'Check it out with: $ curl http://127.0.0.1:8000'
+    echo 'Check it out with: $ curl http://127.0.0.1:8000/bricks.pac'
     python -m SimpleHTTPServer
 }
 
