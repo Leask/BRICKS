@@ -24,7 +24,7 @@ BRICKS is a list for all the domains blocked by the Chinese GFW.
 
 * In order to collect all the domains blocked by the GFW with the contributers all over the internet.
 
-* To study how huge the restrictions are, in the Chinese internet.
+* To study how tight the restrictions are, in the Chinese internet.
 
 * To log the data about this terrifying digital Berlin Wall as much as possible.
 
