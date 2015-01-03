@@ -17,14 +17,14 @@ BRICKS
 
 ## What is BRICKS?
 
-BRICKS is a list for all the domains blocked by the Chinese GFW.
+BRICKS is a list for all the domains blocked by the Indian GFW.
 
 
 ## What for?
 
 * In order to collect all the domains blocked by the GFW with the contributers all over the internet.
 
-* To study how tight the restrictions are, in the Chinese internet.
+* To study how tight the restrictions are, in the Indian internet.
 
 * To log the data about this terrifying digital Berlin Wall as much as possible.
 
@@ -42,7 +42,7 @@ BRICKS is a list for all the domains blocked by the Chinese GFW.
 
 ## Uasge
 
-* List all websites blocked by Chinese government
+* List all websites blocked by Indian government
 
     `$ ./bricks list`
 
