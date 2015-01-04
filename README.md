@@ -17,54 +17,50 @@ BRICKS
 
 ## What is BRICKS?
 
-BRICKS is a list for all the domains blocked by the Chinese GFW.
+BRICKS is a list of domains blocked by the Chinese GFW.
 
 
 ## What for?
 
-* In order to collect all the domains blocked by the GFW with the contributers all over the internet.
+* Colleting domains blocked by the GFW with the contributers.
 
-* To study how tight the restrictions are, in the Chinese internet.
+* Provide a database for any researches on the tightness of Chinese Internet blockage.
 
-* To log the data about this terrifying digital Berlin Wall as much as possible.
-
-* Help you to walkaround the GFW with a proxy server.
-
+* Helping any people and software get arount the GFW.
 
 ## Different from GfwList
-[GfwList](https://code.google.com/p/autoproxy-gfwlist/) is cool and effective, but is complex and inefficient currently. Now, I want to make it simple and work more smoothly.
-
+[GfwList](https://code.google.com/p/autoproxy-gfwlist/) is cool and effective, but growing complex and inefficient. BRICKS is simpler and easier to use.
 
 ## Installation
 
 `$ git clone https://github.com/Leask/BRICKS.git`
 
 
-## Uasge
+## Usage
 
-* List all websites blocked by Chinese government
+* List all websites blocked by the GFW
 
     `$ ./bricks list`
 
     or just simply `$ cat gfw.bricks`
 
-* Add domain into BRICKS
+* Add a domain to BRICKS
 
 	`$ ./bricks add 'google.com'`
 
-* Remove domain from BRICKS
+* Remove a domain from BRICKS
 
 	`$ ./bricks remove 'facebook.com'`
 
-* Make PAC file with BRICKS
+* Make .PAC file with BRICKS
 
 	`$ ./bricks makpac 'SOCKS5 127.0.0.1:8964; SOCKS 127.0.0.1:8964; DIRECT'`
 
-* Make PAC file and launch HTTP server
+* Make .PAC file and launch HTTP server
 
 	`$ ./bricks pacsrv 'SOCKS5 127.0.0.1:8964; SOCKS 127.0.0.1:8964; DIRECT'`
 
-* Show help infos
+* Show help infomation
 
 	`$ ./bricks help`
 
@@ -81,6 +77,6 @@ BRICKS is a list for all the domains blocked by the Chinese GFW.
 Flora_Pac: [https://github.com/Leask/Flora_Pac](https://github.com/Leask/Flora_Pac)
 
 
-## Get support
+## Getting help
 
 Email / iMessage / Hangouts: i@leaskh.com
