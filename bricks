@@ -224,7 +224,7 @@ showHelp() {
     echo '- clean  : Sort & uniq domains in BRICKS'
     echo '- makpac : Make PAC file with BRICKS'
     echo '- pacsrv : Make PAC file and launch HTTP server'
-    echo '- helps  : Show this infos'
+    echo '- help   : Show this infos'
 }
 
 unknowCommand() {
