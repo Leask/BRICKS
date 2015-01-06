@@ -227,7 +227,7 @@ showHelp() {
     echo '- help   : Show this infos'
 }
 
-unknowCommand() {
+unknownCommand() {
     showHelp
     exit 1
 }
@@ -245,6 +245,6 @@ case "$1" in
     'makpac') makePac      $2;;
     'pacsrv') pacServer    $2;;
     'help'  ) showHelp       ;;
-    *       ) unknowCommand  ;;
+    *       ) unknownCommand ;;
 esac
 exit 0
