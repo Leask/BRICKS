@@ -15,7 +15,7 @@ var base64Decode = function(base64) {
 };
 
 var fetchStdin = function(callback) {
-    var stdinChunk = null;
+    var stdinChunk = '';
     process.stdin.setEncoding('utf8');
     process.stdin.on('readable', function() {
         var chunk = process.stdin.read();
