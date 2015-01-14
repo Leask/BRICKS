@@ -75,7 +75,7 @@ var parseList = function(err, body) {
     for (i in domains) {
         append += "\n" + i;
     }
-    fs.writeFile(brickFile, append, function (err) {
+    fs.appendFile(brickFile, append, function (err) {
         if (err) {
             console.log('Error: ' + err);
             process.exit(1);
