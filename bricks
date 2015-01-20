@@ -180,7 +180,7 @@ function FindProxyForURL(url, host) {
         return proxy;
     }
 
-    return DIRECT;
+    return 'DIRECT';
 
 }
 EOF)
