@@ -136,27 +136,24 @@ function FindProxyForURL(url, host) {
 
     var proxy = '$*';
 
-    function testDomain(target, domains, cnRootIncluded) {
-        var idxA = target.lastIndexOf('.');
-        var idxB = target.lastIndexOf('.', idxA - 1);
+    function testDomain(target, domains) {
         var hasOwnProperty = Object.hasOwnProperty;
-        var suffix = cnRootIncluded ? target.substring(idxA + 1) : '';
-        if (suffix === 'cn') {
-            return true;
-        }
-        while (true) {
-            if (idxB === -1) {
+        var suffix;
+        var pos = target.lastIndexOf('.');
+        pos = target.lastIndexOf('.', pos - 1);
+        while(true) {
+            if (pos <= 0) {
                 if (hasOwnProperty.call(domains, target)) {
                     return true;
                 } else {
                     return false;
                 }
             }
-            suffix = target.substring(idxB + 1);
+            suffix = target.substring(pos + 1);
             if (hasOwnProperty.call(domains, suffix)) {
                 return true;
             }
-            idxB = target.lastIndexOf('.', idxB - 1);
+            pos = target.lastIndexOf('.', pos - 1);
         }
     }
 
