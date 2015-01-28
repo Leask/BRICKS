@@ -26,7 +26,7 @@ BRICKS is a list of domains blocked by the Chinese GFW.
 
 * Provide a database for any researches on the tightness of Chinese Internet blockage.
 
-* Helping any people and software get arount the GFW.
+* Helping any people and software get around the GFW.
 
 ## Different from GfwList
 [GfwList](https://code.google.com/p/autoproxy-gfwlist/) is cool and effective, but growing complex and inefficient. BRICKS is simpler and easier to use.
