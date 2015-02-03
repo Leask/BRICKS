@@ -54,7 +54,7 @@ function FindProxyForURL(url, host) {
         'localhost' : 1
     };
 
-    \n// see https://github.com/clowwindy/ChinaDNS/blob/master/chinadns/dnsrelay.py\n
+    '// see https://github.com/clowwindy/ChinaDNS/blob/master/chinadns/dnsrelay.py';
     var fakeIps = {
         '74.125.127.102'  : 1,
         '74.125.155.102'  : 1,
