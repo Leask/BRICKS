@@ -44,8 +44,8 @@ makePac() {
         fi
     done < $brickFile
     strPac=$(cat <<EOF
-// BRICKS Pac by @leaskh
-// www.leaskh.com, i@leaskh.com\n
+'// BRICKS Pac by @leaskh';
+'// www.leaskh.com, i@leaskh.com';
 
 function FindProxyForURL(url, host) {
 
