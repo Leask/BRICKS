@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # BRICKS the Gfwed domains list by @leaskh
 
 listDomain() {
