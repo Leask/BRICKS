@@ -66,7 +66,7 @@ var parseList = function(err, body) {
                              .replace(/\%2f.*$/          , '');
             if (body[i].match(/^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/)
              || body[i].match(/\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/)) {
-                domains[body[i]] = true;
+                domains[body[i].replace(/^www\./, '')] = true;
             } else {
                 console.log('Leaved: ' + body[i]);
             }

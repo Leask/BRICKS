@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # BRICKS the Gfwed domains list by @leaskh
 
 listDomain() {
@@ -44,8 +44,8 @@ makePac() {
         fi
     done < $brickFile
     strPac=$(cat <<EOF
-// BRICKS Pac by @leaskh
-// www.leaskh.com, i@leaskh.com\n
+'// BRICKS Pac by @leaskh';
+'// www.leaskh.com, i@leaskh.com';
 
 function FindProxyForURL(url, host) {
 
@@ -54,7 +54,7 @@ function FindProxyForURL(url, host) {
         'localhost' : 1
     };
 
-    \n// see https://github.com/clowwindy/ChinaDNS/blob/master/chinadns/dnsrelay.py\n
+    '// see https://github.com/clowwindy/ChinaDNS/blob/master/chinadns/dnsrelay.py';
     var fakeIps = {
         '74.125.127.102'  : 1,
         '74.125.155.102'  : 1,
