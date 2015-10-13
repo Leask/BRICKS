@@ -45,6 +45,7 @@ makePac() {
     done < $brickFile
     strPac=$(cat <<EOF
 '// BRICKS Pac by @leaskh';
+'// https://github.com/leask/bricks';
 '// www.leaskh.com, i@leaskh.com';
 
 function FindProxyForURL(url, host) {
@@ -198,6 +199,79 @@ pacServer() {
     python -m SimpleHTTPServer
 }
 
+makeSurge() {
+    proxyKey='Proxy';
+    proxyValue='custom, 1.2.3.4, 443, rc4-md5, password, http://surge.run/SSEncrypt.module';
+    if [ "$*" != '' ]; then
+        proxyValue="$*"
+    fi
+    bricks=''
+    length=0
+    opFile=bricks_surge.conf
+    while read line; do
+        if [ "$line" != '' ]; then
+            bricks+="DOMAIN-SUFFIX,$line,$proxyKey"$'\n'
+            length=$(( length + 1 ))
+        fi
+    done < $brickFile
+    strConf=$(cat <<EOF
+# BRICKS Surge configuration file by @leaskh';
+# Get Info: https://github.com/leask/bricks
+# Based on: http://surge.run/config-example/ss-module.conf
+
+[General]
+loglevel = notify
+
+[Proxy]
+Proxy = $proxyValue
+
+[Rule]
+DOMAIN-KEYWORD,google,Proxy,force-remote-dns
+DOMAIN-KEYWORD,facebook,Proxy,force-remote-dns
+DOMAIN-KEYWORD,youtube,Proxy,force-remote-dns
+DOMAIN-KEYWORD,twitter,Proxy,force-remote-dns
+DOMAIN-KEYWORD,instagram,Proxy,force-remote-dns
+DOMAIN-KEYWORD,gmail,Proxy,force-remote-dns
+DOMAIN-KEYWORD,blogspot,Proxy
+DOMAIN-SUFFIX,twimg.com,Proxy,force-remote-dns
+
+# Remove these lines below if you don't have trouble accessing Apple resources
+DOMAIN-SUFFIX,ls.apple.com,DIRECT
+DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+DOMAIN-SUFFIX,apple.com,Proxy
+DOMAIN-SUFFIX,mzstatic.com,Proxy
+DOMAIN-SUFFIX,itunes.com,Proxy
+DOMAIN-SUFFIX,icloud.com,Proxy
+
+$bricks
+// Telegram
+IP-CIDR,91.108.56.0/22,Proxy,no-resolve
+IP-CIDR,91.108.4.0/22,Proxy,no-resolve
+IP-CIDR,109.239.140.0/24,Proxy,no-resolve
+IP-CIDR,149.154.160.0/20,Proxy,no-resolve
+
+// LAN
+IP-CIDR,192.168.0.0/16,DIRECT
+IP-CIDR,10.0.0.0/8,DIRECT
+IP-CIDR,172.16.0.0/12,DIRECT
+IP-CIDR,127.0.0.0/8,DIRECT
+
+GEOIP,CN,DIRECT
+FINAL,Proxy
+EOF)
+    echo "$strConf" > $opFile
+    echo 'Done :)'
+    echo "Rules: $length items."
+    echo "Usage: Import the newly created $opFile to your Surge app."
+}
+
+surgeServer() {
+    makeSurge $*
+    echo 'Surge configuration file is now serving at:'
+    echo 'http://127.0.0.1:8000/bricks_surge.conf'
+    python -m SimpleHTTPServer
+}
+
 showHelp() {
     echo ' ____________________________________________ '
     echo '| Twitter|________|________|________|__Vimeo_|'
@@ -214,14 +288,16 @@ showHelp() {
     echo ''
     echo 'BRICKS is a list for all the domains blocked by the Chinese GFW (Great-Fire-Wall).'
     echo ''
-    echo '- list   : List all the domains in BRICKS'
-    echo '- search : Search for domains in BRICKS'
-    echo '- add    : Add domain into BRICKS'
-    echo '- remove : Remove domain from BRICKS'
-    echo '- clean  : Sort & uniq domains in BRICKS'
-    echo '- makpac : Make PAC file with BRICKS'
-    echo '- pacsrv : Make PAC file and launch HTTP server'
-    echo '- help   : Show this infos'
+    echo '- list     : List all the domains in BRICKS'
+    echo '- search   : Search for domains in BRICKS'
+    echo '- add      : Add domain into BRICKS'
+    echo '- remove   : Remove domain from BRICKS'
+    echo '- clean    : Sort & uniq domains in BRICKS'
+    echo '- makpac   : Make PAC file with BRICKS'
+    echo '- pacsrv   : Make PAC file and launch HTTP server'
+    echo '- maksurge : Make Surge configuration file'
+    echo '- surgesrv : Make Surge conf-file and launch HTTP server'
+    echo '- help     : Show this infos'
 }
 
 unknownCommand() {
@@ -234,14 +310,16 @@ brickFile=./gfw.bricks
 
 # Main logic
 case "$1" in
-    'list'  ) listDomain     ;;
-    'search') searchDomain $2;;
-    'add'   ) addDomain    $2;;
-    'remove') removeDomain $2;;
-    'clean' ) cleanList      ;;
-    'makpac') makePac      $2;;
-    'pacsrv') pacServer    $2;;
-    'help'  ) showHelp       ;;
-    *       ) unknownCommand ;;
+    'list'    ) listDomain     ;;
+    'search'  ) searchDomain $2;;
+    'add'     ) addDomain    $2;;
+    'remove'  ) removeDomain $2;;
+    'clean'   ) cleanList      ;;
+    'makpac'  ) makePac      $2;;
+    'pacsrv'  ) pacServer    $2;;
+    'maksurge') makeSurge    $2;;
+    'surgesrv') surgeServer  $2;;
+    'help'    ) showHelp       ;;
+    *         ) unknownCommand ;;
 esac
 exit 0
