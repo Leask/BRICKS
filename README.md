@@ -60,6 +60,14 @@ BRICKS is a list of domains blocked by the Chinese GFW.
 
 	`$ ./bricks pacsrv 'SOCKS5 127.0.0.1:8964; SOCKS 127.0.0.1:8964; DIRECT'`
 
+* Make Surge configuration file with BRICKS
+
+	`$ ./bricks maksurge 'custom, 1.2.3.4, 443, rc4-md5, password, http://surge.run/SSEncrypt.module'`
+
+* Make Surge configuration file and launch HTTP server
+
+	`$ ./bricks surgesrv 'custom, 1.2.3.4, 443, rc4-md5, password, http://surge.run/SSEncrypt.module'`
+
 * Show help infomation
 
 	`$ ./bricks help`
