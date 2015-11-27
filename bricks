@@ -172,14 +172,14 @@ function FindProxyForURL(url, host) {
         return 'DIRECT';
     }
 
-    var strIp = dnsResolve(host);
-    if (!strIp) {
-        return proxy;
-    }
+'// var strIp = dnsResolve(host);';
+'// if (!strIp) {';
+'//     return proxy;';
+'// }';
 
-    if (fakeIps[strIp]) {
-        return proxy;
-    }
+'// if (fakeIps[strIp]) {';
+'//     return proxy;';
+'// }';
 
     return 'DIRECT';
 
