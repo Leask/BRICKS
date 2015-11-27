@@ -184,7 +184,8 @@ function FindProxyForURL(url, host) {
     return 'DIRECT';
 
 }
-EOF)
+EOF
+)
     echo $strPac > $opFile
     echo 'Done :)'
     echo "Rules: $length items."
@@ -264,7 +265,8 @@ IP-CIDR,127.0.0.0/8,DIRECT
 
 GEOIP,CN,DIRECT
 FINAL,Proxy
-EOF)
+EOF
+)
     echo "$strConf" > $opFile
     echo 'Done :)'
     echo "Rules: $length items."
